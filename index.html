@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<meta charset="UTF-8">
+	<title>zadanie rekrutacyjne</title>
+	<link rel="stylesheet" href="style.css" type="text/css">
+	<!--<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">-->
+	<!-- https://devcorner.pl/10-niesamowitych-alternatyw-dla-hamburgerowego-menu/
+	https://blog.robertorlinski.pl/2018/09/25/hamburger-menu/
+	https://www.w3schools.com/howto/howto_js_fullscreen_overlay.asp
+	https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_slideshow
+	https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_overlay2
+	https://imagecolorpicker.com/pl
+
+	https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_slideshow
+	https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_slideshow_auto
+
+	-->
+	<style>
+
+
+.mySlides {display: none;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 700px;
+  position: relative;
+  margin: auto;
+}
+
+/* Caption text */
+.text {
+  color: white;
+  font-size: 22px;
+  padding: 8px 12px;
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: blue;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: red;
+  border-radius: 10%;
+  display: inline-block;
+  transition: background-color .5s linear;
+}
+
+.active {
+  background-color: orange;
+}
+
+/* Fading animation */
+.myAnimaction {
+  -webkit-animation-name: myAnimaction;
+  -webkit-animation-duration: 1.5s;
+  animation-name: myAnimaction;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes myAnimaction {
+  from {opacity: .2} 
+  to {opacity: .9}
+}
+
+@keyframes myAnimaction {
+  from {opacity: .2} 
+  to {opacity: .9}
+}
+
+
+</style>
+
+</head>
+<body>
+	<div class="page_content">
+		<header>
+			<div class="logo">
+				<img id="logo" src="logo_main.png">
+			</div>
+			<div class="menu">
+				<button id="lupa"><img class="lupa" src="lupa.png"></button>
+				<div class="hamburger">
+					<div id="myNav" class="overlay">
+  						<a href="#" class="closebtn" onclick="closeNav()">
+  						&times;
+  						</a>
+  						<div class="overlay-content">
+  							<nav class="content_nav">
+    							<ul>
+									<li><a href="#" class="about" id="about" onclick="myFunction(0)" onclick="addAbout()">About</a></li>
+									<li><a href="#" class="services" id="services" onclick="myFunction(1)">Portfolio</a></li>
+									<li><a href="#" class="clients" id="clients" onclick="myFunction(2)"onclick="myFunction(1)">Clients</a></li>
+									<li><a href="#" class="contact" id="contact" onclick="myFunction(3)">Contact</a></li>
+
+								</ul>
+							</nav>
+							<div style="position:fixed; width:100vw; bottom:30px; text-align: center; font-size:14px; color:white; font-weight: 600;">footer @2018</div>
+  						</div>
+  						<div id="content_content" class="content_content" >
+  							<h1>Witaj na stronie głównej</h1>
+  							<div id="slider" class="slideshow-container">
+  								<div class="mySlides myAnimaction">
+  									<div class="numbertext">1 / 3</div>
+  									<img src="1slider.jpg" style="width:100%">
+  									<div class="text">Caption Text</div>
+								</div>
+
+								<div class="mySlides myAnimaction">
+  									<div class="numbertext">2 / 3</div>
+ 									<img src="2slider.jpg" style="width:100%">
+  									<div class="text">Caption Two</div>
+								</div>
+
+								<div class="mySlides myAnimaction">
+  									<div class="numbertext">3 / 3</div>
+  									<img src="3slider.jpg" style="width:100%">
+  									<div class="text">Caption Three</div>
+								</div>
+								<br>
+
+								<div style="text-align:center">
+  									<span class="dot"></span> 
+  									<span class="dot"></span> 
+  									<span class="dot"></span> 
+								</div>
+
+  							</div>
+  						</div>
+					</div>
+
+					<div id="hamburger_icon" onclick="openNav()">
+						<span class="nav_top"></span>
+  						<span class="nav_middle"></span>
+  						<span class="nav_bottom"></span>
+  						
+					</div>
+
+				</div>
+			</div>
+		</header>
+
+		
+		
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script type="text/javascript" src="silnik.js"></script>
+
+	<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    for (i = 0; i < slides.length; i++) {
+       slides[i].style.display = "none";  
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}    
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";  
+    dots[slideIndex-1].className += " active";
+    setTimeout(showSlides, 3000); // Change image every 2 seconds
+}
+</script>
+
+</body>
+</html>
